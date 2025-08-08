@@ -6,7 +6,9 @@
   <title>Portofolio | Mochammad Firmandika Jati Kusuma</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- filepath: d:\Portofolio_Diri\porto-firmandika\public\index.html -->
+<!-- filepath: d:\Portofolio_Diri\porto-firmandika\public\index.html -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -169,7 +171,6 @@
             </div>
           </div>
         </div>
-        
         
         <!-- Main Content -->
         <div class="lg:w-2/3 p-8 slide-content">
@@ -472,44 +473,49 @@
   </div>
 
   <script>
-    function showSlide(slideId) {
-      // Hide all slides
-      document.querySelectorAll('.slide').forEach(slide => {
-        slide.classList.add('hidden');
-      });
-      
-      // Show selected slide
-      document.getElementById(slideId).classList.remove('hidden');
-      
-      // Update active tab button
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-        btn.style.background = 'white';
-      });
-      
-      // Find the button that matches the slideId and style it
-      const buttons = document.querySelectorAll('.tab-btn');
-      for (let i = 0; i < buttons.length; i++) {
-        if (buttons[i].getAttribute('onclick').includes(slideId)) {
-          buttons[i].classList.add('active');
-          break;
-        }
-      }
+// filepath: d:\Portofolio_Diri\porto-firmandika\public\index.html
+function playClickSound() {
+  const audio = document.getElementById('clickSound');
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play();
+  }
+}
+
+function showSlide(slideId) {
+  playClickSound(); // Tambahkan suara klik
+  document.querySelectorAll('.slide').forEach(slide => {
+    slide.classList.add('hidden');
+  });
+  document.getElementById(slideId).classList.remove('hidden');
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+    btn.style.background = 'white';
+  });
+  const buttons = document.querySelectorAll('.tab-btn');
+  for (let i = 0; i < buttons.length; i++) {
+    if (buttons[i].getAttribute('onclick').includes(slideId)) {
+      buttons[i].classList.add('active');
+      break;
     }
-
-  function enterPortfolio() {
-    document.getElementById('landing').classList.add('hidden');
-    document.querySelector('portofolio').classList.remove('hidden');
-    showSlide('profile'); // langsung tampilkan profil
-    document.getElementById('landing').scrollIntoView({ behavior: 'smooth' });
   }
+}
 
-  function backToLanding() {
-    document.getElementById('portofolio').classList.add('hidden');
-    document.getElementById('landing').classList.remove('hidden');
-    document.getElementById('portofolio').classList.remove('hidden');      d
-    document.getElementById('landing').scrollIntoView({ behavior: 'smooth' });
-  }
+function enterPortfolio() {
+  playClickSound(); // Suara klik
+  document.getElementById('landing').classList.add('hidden');
+  document.getElementById('portofolio').classList.remove('hidden');
+  showSlide('profile');
+  document.getElementById('landing').scrollIntoView({ behavior: 'smooth' });
+}
+
+function backToLanding() {
+  playClickSound(); // Suara klik
+  document.getElementById('portofolio').classList.add('hidden');
+  document.getElementById('landing').classList.remove('hidden');
+  document.getElementById('portofolio').classList.remove('hidden');
+  document.getElementById('landing').scrollIntoView({ behavior: 'smooth' });
+}
 
   // Initialize first slide as active
     document.addEventListener('DOMContentLoaded', function() {
@@ -522,6 +528,7 @@
     // Initialize AOS on page load
   AOS.init();
 </script>
-
-  </body>
+<!-- Tambahkan di dalam <body> sebelum <script> -->
+<audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_115b9b2b48.mp3"></audio>
+  </body
 </html>
