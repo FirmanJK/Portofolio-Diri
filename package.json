@@ -1,6 +1,9 @@
 {
   "name": "portofolio-diri",
   "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'No build process needed for this project'"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
