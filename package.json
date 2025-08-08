@@ -1,10 +1,6 @@
 {
   "name": "portofolio-diri",
   "version": "1.0.0",
-  "scripts": {
-  "build": "tailwindcss -i ./public/style.css -o ./public/output.css --minify",
-  "dev": "tailwindcss -i ./public/style.css -o ./public/output.css --watch"
-  },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
